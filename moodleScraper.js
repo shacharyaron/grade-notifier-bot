@@ -1,6 +1,6 @@
 const puppeteer = require("puppeteer");
 
-const IDC_URL = "https://my.idc.ac.il/my.policy#/?lang=hebrew";
+const IDC_URL = "https://my.idc.ac.il/my.policy#/?lang=english";
 
 let browser;
 let context;
@@ -12,16 +12,16 @@ const initConnection = async () => {
   page = await context.newPage();
 };
 
-const login = async () => {
+const loginToIDC = async (userName, password) => {
   await page.goto(IDC_URL);
 
   try {
     await page.click("div[id=newSessionDIV] > a");
     await page.waitForSelector("input[name=username]");
-  } catch {}
+  } catch { }
 
-  await page.type("input[name=username]", USER_NAME);
-  await page.type("input[name=password]", PASSWORD);
+  await page.type("input[name=username]", userName);
+  await page.type("input[name=password]", password);
   await page.click("input[value=Logon]");
 };
 
@@ -39,23 +39,27 @@ const fetchGrade = async () => {
     await page.$(".exam_row .number")
   );
 
-  console.log(courseName);
-  console.log(courseGrade);
+  return {
+    courseName,
+    courseGrade
+  }
 };
 
 const closeConnection = async () => {
   await browser.close();
 };
 
-const fetchGradeFromIDC = async () => {
+const fetchGradeFromIDC = async (userName, password) => {
   console.log("initialize connection");
   await initConnection();
   console.log(`logging into ${IDC_URL}`);
-  await login();
+  await loginToIDC(userName, password);
   console.log('fetching latest grade');
-  await fetchGrade();
+  const grade = await fetchGrade();
   console.log('closing connection');
   await closeConnection();
+  return grade;
 };
 
-fetchGradeFromIDC();
+export default fetchGradeFromIDC;
+
