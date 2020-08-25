@@ -17,9 +17,9 @@ const loginToIDC = async (userName, password) => {
 
   try {
     await page.click("div[id=newSessionDIV] > a");
-    await page.waitForSelector("input[name=username]");
   } catch { }
 
+  await page.waitForSelector("input[name=username]");
   await page.type("input[name=username]", userName);
   await page.type("input[name=password]", password);
   await page.click("input[value=Logon]");
@@ -61,5 +61,4 @@ const fetchGradeFromIDC = async (userName, password) => {
   return grade;
 };
 
-export default fetchGradeFromIDC;
-
+module.exports = fetchGradeFromIDC;
