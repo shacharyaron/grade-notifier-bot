@@ -29,23 +29,9 @@ const loginToIDC = async (userName, password) => {
 
 const getGradeFromIDC = async () => {
   await page.waitForSelector(".exam_list .title", { timeout: 90000 });
-
-  const courseName = await page.evaluate(
-    (element) => element.innerHTML,
-    await page.$(".exam_list .title")
-  );
-
-  const courseGrade = await page.evaluate(
-    (element) => element.innerHTML,
-    await page.$(".exam_list .number")
-  );
-
-  const gradeInformation = {
-    courseName,
-    courseGrade
-  }
-
-  return gradeInformation;
+  const courseName = await page.evaluate((element) => element.innerHTML, await page.$(".exam_list .title"));
+  const courseGrade = await page.evaluate((element) => element.innerHTML, await page.$(".exam_list .number"));
+  return { courseName, courseGrade }
 }
 
 const closeConnection = async () => {
