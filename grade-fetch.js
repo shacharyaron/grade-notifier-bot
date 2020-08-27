@@ -1,5 +1,5 @@
 const puppeteer = require("puppeteer");
-const log = require('./logger');
+const logger = require('./logger');
 
 const IDC_URL = "https://my.idc.ac.il/my.policy#/?lang=english";
 
@@ -53,16 +53,16 @@ const closeConnection = async () => {
 }
 
 const fetchGrade = async (userName, password) => {
-  log(`initializing connection`);
+  logger.debug(`initializing connection`);
   await initConnection();
 
-  log(`logging into ${IDC_URL}`);
+  logger.debug(`logging into ${IDC_URL}`);
   await loginToIDC(userName, password);
 
-  log('fetching latest grade');
+  logger.debug('fetching latest grade');
   const grade = await getGradeFromIDC();
 
-  log('closing connection');
+  logger.debug('closing connection');
   await closeConnection();
 
   return grade;
