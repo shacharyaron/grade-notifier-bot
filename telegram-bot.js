@@ -10,46 +10,48 @@ const WELCOME_MESSAGE = "Hello! I will send you a message once a new grade is po
 const telegramBotKey = CONFIG.telegramBotKey;
 
 const initBot = async () => {
-    const uuid = uuidv4();
-    let chatId = null;
+    const userId = uuidv4();
 
-    logger.log(`\nEnter this link to start the Telegram bot: ${START_BOT_LINK}?start=${uuid}`);
-    logger.log("Waiting for bot to respond...\n");
+    logger.log(`Enter this link to start the Telegram bot: ${START_BOT_LINK}?start=${userId}`);
 
+    logger.log("Waiting for bot to respond...");
     while (true) {
         const response = await Axios.get(`${TELEGRAM_API}/bot${telegramBotKey}/getUpdates`);
-        chatId = await findChatIdByUuid(response.data, uuid);
+        const chatId = await findChatIdByUserId(response.data, userId);
         if (chatId) {
-            await Axios.post(`${TELEGRAM_API}/bot${telegramBotKey}/sendMessage?chat_id=${chatId}&text=${WELCOME_MESSAGE}`);
-            logger.debug("bot sent welcome messsage");
-
+            sendMessage(WELCOME_MESSAGE, chatId);
+            logger.debug(`bot sent welcome messsage to user with id: ${userId}`);
             return chatId;
         }
     }
 }
 
-const sendMessage = async (grade, chatId) => {
-    const gradeMessage = `Your grade in ${grade.courseName} is ${grade.courseGrade}`;
-    const chatUrl = encodeURI(`${TELEGRAM_API}/bot${telegramBotKey}/sendMessage?chat_id=${chatId}&text=${gradeMessage}`);
-    const response = await Axios.post(chatUrl);
-
-    logger.debug("nofity a new grade on Telegram");
+const sendMessage = async (message, chatId) => {
+    const sendMessageUrl = encodeURI(`${TELEGRAM_API}/bot${telegramBotKey}/sendMessage?chat_id=${chatId}&text=${message}`);
+    const response = await Axios.post(sendMessageUrl);
+    return response;
 }
 
-const findChatIdByUuid = async (messages, uuid) => {
+const sendGradeMessage = async (grade, chatId) => {
+    const gradeMessage = `Your grade in ${grade.courseName} is ${grade.courseGrade}`;
+    const response = sendMessage(gradeMessage, chatId);
+    logger.debug("Telegram bot posted a new grade");
+    return response;
+}
+
+const findChatIdByUserId = async (messages, userId) => {
     let chatId;
-    const messagesList = messages.result;
-    messagesList.forEach(messageItem => {
+
+    const allMessages = messages.result;
+    allMessages.forEach(messageItem => {
         const text = messageItem.message.text;
-        if (text.includes(uuid)) {
+        if (text.includes(userId)) {
             chatId = messageItem.message.chat.id;
             return chatId;
         }
     });
+
     return chatId;
 }
 
-module.exports = {
-    sendMessage,
-    initBot
-};
+module.exports = { initBot, sendMessage, sendGradeMessage };
