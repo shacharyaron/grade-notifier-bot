@@ -1,4 +1,4 @@
-const CONFIG = require('./config.json');
+const CONFIG = require('../config.json');
 const { default: Axios } = require('axios');
 const { v4: uuidv4 } = require('uuid');
 const logger = require('./logger');

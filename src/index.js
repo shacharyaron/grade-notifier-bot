@@ -1,9 +1,10 @@
-const CONFIG = require('./config.json');
+const CONFIG = require('../config.json');
 const fetchGradeFromIDC = require('./grade-fetch');
-const TelegramBot = require('./telegram-bot');
+const TelegramBot = require('../telegram-bot');
 const logger = require('./logger')
 const prompt = require('prompt-sync')({ sigint: true });
 const { default: Axios } = require('axios');
+//TODO: do we need this?
 const readline = require('readline').createInterface({
     input: process.stdin,
     output: process.stdout
