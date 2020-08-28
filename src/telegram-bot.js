@@ -10,7 +10,7 @@ const TELEGRAM_API = 'https://api.telegram.org';
 const START_BOT_LINK = `https://t.me/${telegramBotName}`;
 const WELCOME_MESSAGE = "Hello! I will send you a message once a new grade is posted.";
 
-const initBot = async () => {
+const startConversation = async () => {
     const userId = uuidv4();
 
     logger.log(`Enter this link to start the Telegram bot: ${START_BOT_LINK}?start=${userId}`);
@@ -55,4 +55,4 @@ const findChatIdByUserId = async (messages, userId) => {
     return chatId;
 }
 
-module.exports = { initBot, sendMessage, sendGradeMessage };
+module.exports = { startConversation, sendMessage, sendGradeMessage };

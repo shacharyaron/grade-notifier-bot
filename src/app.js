@@ -2,7 +2,7 @@ const CONFIG = require('../config.json');
 const fetchGrade = require('./grade-fetch');
 const logger = require('./logger')
 const prompt = require('prompt-sync')({ sigint: true });
-const TelegramBot = require('./telegram-bot');
+const telegramBot = require('./telegram-bot');
 
 const APP_TITLE = `\n===============\n Telegram bot:\n===============\n`;
 
@@ -20,7 +20,7 @@ const getUserData = async () => {
 
     const userName = CONFIG.moodleUserName || prompt('Moodle user name: ');
     const password = CONFIG.moodlePassword || prompt('Moodle password: ');
-    const chatId = await TelegramBot.initBot();
+    const chatId = await telegramBot.startConversation();
 
     return { userName, password, chatId };
 }
@@ -32,7 +32,7 @@ const pollGrade = async () => {
     }
 
     if (newGrade.courseName != grade.courseName || newGrade.courseGrade != grade.courseGrade) {
-        TelegramBot.sendGradeMessage(newGrade, userData.chatId);
+        telegramBot.sendGradeMessage(newGrade, userData.chatId);
     }
 
     grade = newGrade;
