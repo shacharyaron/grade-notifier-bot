@@ -3,11 +3,12 @@ const { default: Axios } = require('axios');
 const { v4: uuidv4 } = require('uuid');
 const logger = require('./logger');
 
-const TELEGRAM_API = 'https://api.telegram.org';
-const START_BOT_LINK = 'https://t.me/idc_grade_notifier_bot';
-const WELCOME_MESSAGE = "Hello! I will send you a message once a new grade is posted.";
-
 const telegramBotKey = CONFIG.telegramBotKey;
+const telegramBotName = CONFIG.telegramBotName;
+
+const TELEGRAM_API = 'https://api.telegram.org';
+const START_BOT_LINK = `https://t.me/${telegramBotName}`;
+const WELCOME_MESSAGE = "Hello! I will send you a message once a new grade is posted.";
 
 const initBot = async () => {
     const userId = uuidv4();
