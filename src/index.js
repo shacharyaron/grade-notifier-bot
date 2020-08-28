@@ -1,21 +1,13 @@
 const CONFIG = require('../config.json');
-const fetchGradeFromIDC = require('./grade-fetch');
-const TelegramBot = require('../telegram-bot');
+const fetchGrade = require('./grade-fetch');
 const logger = require('./logger')
 const prompt = require('prompt-sync')({ sigint: true });
-const { default: Axios } = require('axios');
-//TODO: do we need this?
-const readline = require('readline').createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
+const TelegramBot = require('./telegram-bot');
 
-const APP_TITLE = `\n===============
- Telegram bot:
-===============\n`;
+const APP_TITLE = `\n===============\n Telegram bot:\n===============\n`;
 
-const minutes = 10;
-const reconnectInterval = minutes * 60 * 1000;
+const gradePollingIntervalInMinutes = CONFIG.gradePollingIntervalInMinutes || 10;
+const gradePollingInterval = gradePollingIntervalInMinutes * 60 * 1000;
 let userData;
 let grade;
 
@@ -30,20 +22,13 @@ const getUserData = async () => {
     const password = CONFIG.moodlePassword || prompt('Moodle password: ');
     const chatId = await TelegramBot.initBot();
 
-    const userCredentials = {
-        userName: userName,
-        password: password,
-        chatId: chatId
-    };
-
-    return userCredentials;
+    return { userName, password, chatId };
 }
 
 const pollGrade = async () => {
-    const newGrade = await fetchGradeFromIDC(userData.userName, userData.password);
+    const newGrade = await fetchGrade(userData.userName, userData.password);
     if (!grade) {
         grade = newGrade;
-        TelegramBot.sendGradeMessage(newGrade, userData.chatId);
     }
 
     if (newGrade.courseName != grade.courseName || newGrade.courseGrade != grade.courseGrade) {
@@ -53,10 +38,8 @@ const pollGrade = async () => {
     grade = newGrade;
 }
 
-const app = async () => {
+(async () => {
     userData = await getUserData();
     pollGrade();
-    setInterval(pollGrade, reconnectInterval);
-}
-
-app();
+    setInterval(pollGrade, gradePollingInterval);
+})();
