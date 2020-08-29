@@ -4,10 +4,10 @@ Grade notifier bot is a node.js application which scans the grade list on your M
 # How to run
 You can run the gallery by performing the following steps:
 ```
-$ mkdir grade-notifier-bot
 $ git clone https://github.com/shacharyaron/grade-notifier-bot.git
+$ cd grade-notifier-bot
 $ npm install
-$ cd grade-notifier-bot\src
+$ cd src\
 $ node app.js
 ```
 When you run the application you would be asked to enter your Moodle credentials, and intialize the connection through a given link:
@@ -16,8 +16,8 @@ When you run the application you would be asked to enter your Moodle credentials
 <kbd>
   <img width=750px src="https://github.com/shacharyaron/grade-notifier-bot/blob/master/screenshots/run-bot-screenShot.jpg">
 </kbd></br>
-3. press "OPEN IN WEB" button</br>
-4. in the open conversions press "strat"</br>
+3. Press "OPEN IN WEB" button</br>
+4. In the open conversion press "strat"</br>
 </br>
 Congratulations! You don't waste your time on refresh Moodle web page anymore.
 

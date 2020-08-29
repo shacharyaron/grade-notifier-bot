@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/shacharyaron/grade-notifier-bot/issues"
   },
-  "homepage": "https://github.com/shacharyaron/grade-notifier-bot#readme"
+  "homepage": "https://github.com/shacharyaron/grade-notifier-bot#readme",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "colors": "^1.4.0",
+    "moment": "^2.27.0",
+    "prompt-sync": "^4.2.0",
+    "puppeteer": "^5.2.1",
+    "uuid": "^8.3.0"
+  }
 }
