@@ -1,25 +1,53 @@
 # grade-notifier-bot
-Grade notifier bot is a node.js application which scans the grade list on your Moodle account every few minuites and check for updats regard new gradeds. Once a new grade is published, you would recieve a message on Telegram which announces you about your score.
+Grade Notifier Bot is a Node.js application that notifies whenever a new grade is posted on IDC's website.
+</br>
+This Telegram bot was created so IDC students wouldn't have to refresh the IDC website while waiting for their exam grades to be published.
 
 # How to run
-You can run the gallery by performing the following steps:
+You can run the project by performing the following steps:
 ```
 $ git clone https://github.com/shacharyaron/grade-notifier-bot.git
 $ cd grade-notifier-bot
 $ npm install
-$ cd src\
-$ node app.js
+$ npm start
 ```
-When you run the application you would be asked to enter your Moodle credentials, and intialize the connection through a given link:
-1. Make sure you are connected to Telegram web
-2. Follow the link to the next web page:
+**IMPORTANT NOTE:**<br>
+In order for the app to run, you must add a ```config.json``` file into the root directory, the file should have the following properties :
+```
+{
+    "moodle": {
+        "userName": "YOUR-USER-NAME-HERE", //NOT MANDATORY
+        "password": "YOUR-PASSWORD-HERE" //NOT MANDATORY
+    },
+    "telegram": {
+        "botName": "BOT-NAME-HERE",
+        "botKey": "BOT-API-KEY-HERE"
+    },
+    "settings": {
+        "gradePollingIntervalInMinutes": 10  //NOT MANDATORY
+    }
+}
+```
+
+
+# Use case
+
+1. Run the bot
+
+2. Follow the link to start chatting with the bot
 <kbd>
-  <img width=750px src="https://github.com/shacharyaron/grade-notifier-bot/blob/master/screenshots/run-bot-screenShot.jpg">
-</kbd></br>
-3. Press "OPEN IN WEB" button</br>
-4. In the open conversion press "strat"</br>
-</br>
-Congratulations! You don't waste your time on refresh Moodle web page anymore.
+  <img width=750px src="https://github.com/shacharyaron/grade-notifier-bot/blob/master/screenshots/screenshot1.jpg">
+</kbd>
+
+3. After clicking on the "START", the bot will greet you
+<kbd>
+  <img width=300px src="https://github.com/shacharyaron/grade-notifier-bot/blob/master/screenshots/screenshot2.jpg">
+</kbd>
+
+4. Once a new grade is posted, the bot will send you a message
+<kbd>
+  <img width=300px src="https://github.com/shacharyaron/grade-notifier-bot/blob/master/screenshots/screenshot3.jpg">
+</kbd>
 
 # License
 This project is licensed under the Apache-2.0 License.
