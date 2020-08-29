@@ -1,0 +1,27 @@
+{
+  "name": "grade-notifier-bot",
+  "version": "1.0.0",
+  "description": "A Telegram bot that notifies the user whenever a new grade is posted",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shacharyaron/grade-notifier-bot.git"
+  },
+  "author": "Shachar Yaron",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/shacharyaron/grade-notifier-bot/issues"
+  },
+  "homepage": "https://github.com/shacharyaron/grade-notifier-bot#readme",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "colors": "^1.4.0",
+    "moment": "^2.27.0",
+    "prompt-sync": "^4.2.0",
+    "puppeteer": "^5.2.1",
+    "uuid": "^8.3.0"
+  }
+}
