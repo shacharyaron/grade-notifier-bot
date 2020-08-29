@@ -40,7 +40,7 @@ In order for the app to run, you must add a ```config.json``` file into the root
 </kbd>
 
 <br />
-3. After clicking on the "START", the bot will greet you
+3. After clicking on the "START", the bot will greet you<br />
 <kbd>
   <img width=300px src="https://github.com/shacharyaron/grade-notifier-bot/blob/master/screenshots/screenshot2.jpg">
 </kbd><br />
