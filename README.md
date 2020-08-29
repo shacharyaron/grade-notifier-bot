@@ -11,7 +11,7 @@ $ cd grade-notifier-bot
 $ npm install
 $ npm start
 ```
-**IMPORTANT NOTE:**<br>:calling:
+**IMPORTANT NOTE:**<br>
 In order for the app to run, you must add a ```config.json``` file into the root directory, the file should have the following properties :
 ```
 {
@@ -30,7 +30,7 @@ In order for the app to run, you must add a ```config.json``` file into the root
 ```
 
 
-# Use case
+# Use case :calling:
 1. Run the bot
 2. Follow the link to start chatting with the bot on Telegram
 <img width=750px src="https://github.com/shacharyaron/grade-notifier-bot/blob/master/screenshots/screenshot1.jpg">
