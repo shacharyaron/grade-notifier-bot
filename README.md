@@ -15,7 +15,7 @@ When you run the application you would be asked to enter your Moodle credentials
 2. Follow the link to the next web page:
 <kbd>
   <img width=860px src="https://github.com/shacharyaron/grade-notifier-bot/blob/master/screenshots/run-bot-screenShot.jpg">
-</kbd>  
+</kbd></br>
 3. press "OPEN IN WEB" button
 4. in the open conversions press "strat"
 
