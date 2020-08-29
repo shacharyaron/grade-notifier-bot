@@ -3,8 +3,8 @@ const { default: Axios } = require('axios');
 const { v4: uuidv4 } = require('uuid');
 const logger = require('./logger');
 
-const telegramBotKey = CONFIG.telegramBotKey;
-const telegramBotName = CONFIG.telegramBotName;
+const telegramBotKey = CONFIG.telegram.botKey;
+const telegramBotName = CONFIG.telegram.botName;
 
 const TELEGRAM_API = 'https://api.telegram.org';
 const START_BOT_LINK = `https://t.me/${telegramBotName}`;
@@ -36,7 +36,7 @@ const sendMessage = async (message, chatId) => {
 const sendGradeMessage = async (grade, chatId) => {
     const gradeMessage = `Your grade in ${grade.courseName} is ${grade.courseGrade}`;
     const response = sendMessage(gradeMessage, chatId);
-    logger.debug("Telegram bot posted a new grade");
+    logger.debug(`Telegram bot posted a new grade: ${JSON.stringify(grade)}`);
     return response;
 }
 
