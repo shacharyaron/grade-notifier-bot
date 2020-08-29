@@ -29,7 +29,6 @@ const pollGrade = async () => {
     const newGrade = await fetchGrade(userData.userName, userData.password);
     if (!grade) {
         grade = newGrade;
-        telegramBot.sendGradeMessage(newGrade, userData.chatId);
     }
 
     if (newGrade.courseName != grade.courseName || newGrade.courseGrade != grade.courseGrade) {
