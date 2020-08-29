@@ -11,7 +11,7 @@ $ cd grade-notifier-bot
 $ npm install
 $ npm start
 ```
-**IMPORTANT NOTE:**<br>
+**:warning: IMPORTANT NOTE:**<br>
 In order for the app to run, you must add a ```config.json``` file into the root directory, the file should have the following properties :
 ```
 {
