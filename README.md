@@ -1,4 +1,4 @@
-# Grade Notifier Bot
+# 📚 Grade Notifier Bot
 Grade Notifier Bot is a Node.js application that notifies whenever a new grade is posted on IDC's website :computer:.
 </br>
 This Telegram bot was created so IDC students wouldn't have to constantly refresh the IDC website while waiting for their exam grades to be published.
