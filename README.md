@@ -16,7 +16,7 @@ When you run the application you would be asked to enter your Moodle credentials
 <kbd>
   <img width=860px src="https://github.com/shacharyaron/grade-notifier-bot/blob/master/screenshots/run-bot-screenShot.jpg">
 </kbd></br>
-3. press "OPEN IN WEB" button
-4. in the open conversions press "strat"
+3. press "OPEN IN WEB" button</br>
+4. in the open conversions press "strat"</br>
 
 Congratulations! You don't waste your time on refresh Moodle web page anymore.
