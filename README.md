@@ -35,7 +35,7 @@ In order for the app to run, you must add a ```config.json``` file into the root
 2. Follow the link to start chatting with the bot on Telegram
 <img width=750px src="https://github.com/shacharyaron/grade-notifier-bot/blob/master/screenshots/screenshot1.jpg">
 
-3. After clicking on the "START", the bot will greet you
+3. Click on the "START" button and wait for the bot to greet you
 <img width=300px src="https://github.com/shacharyaron/grade-notifier-bot/blob/master/screenshots/screenshot2.jpg">
 
 4. Once a new grade is posted, the bot will send you a message
