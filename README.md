@@ -39,10 +39,12 @@ In order for the app to run, you must add a ```config.json``` file into the root
   <img width=750px src="https://github.com/shacharyaron/grade-notifier-bot/blob/master/screenshots/screenshot1.jpg">
 </kbd>
 
+<br />
 3. After clicking on the "START", the bot will greet you
 <kbd>
   <img width=300px src="https://github.com/shacharyaron/grade-notifier-bot/blob/master/screenshots/screenshot2.jpg">
-</kbd>
+</kbd><br />
+
 
 4. Once a new grade is posted, the bot will send you a message
 <kbd>
