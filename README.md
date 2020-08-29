@@ -31,25 +31,15 @@ In order for the app to run, you must add a ```config.json``` file into the root
 
 
 # Use case
-
 1. Run the bot
-
 2. Follow the link to start chatting with the bot
-<kbd>
-  <img width=750px src="https://github.com/shacharyaron/grade-notifier-bot/blob/master/screenshots/screenshot1.jpg">
-</kbd>
+<img width=750px src="https://github.com/shacharyaron/grade-notifier-bot/blob/master/screenshots/screenshot1.jpg">
 
-<br />
-3. After clicking on the "START", the bot will greet you<br />
-<kbd>
-  <img width=300px src="https://github.com/shacharyaron/grade-notifier-bot/blob/master/screenshots/screenshot2.jpg">
-</kbd><br />
-
+3. After clicking on the "START", the bot will greet you
+<img width=300px src="https://github.com/shacharyaron/grade-notifier-bot/blob/master/screenshots/screenshot2.jpg">
 
 4. Once a new grade is posted, the bot will send you a message
-<kbd>
-  <img width=300px src="https://github.com/shacharyaron/grade-notifier-bot/blob/master/screenshots/screenshot3.jpg">
-</kbd>
-
+<img width=300px src="https://github.com/shacharyaron/grade-notifier-bot/blob/master/screenshots/screenshot3.jpg">
+  
 # License
 This project is licensed under the Apache-2.0 License.
