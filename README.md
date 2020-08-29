@@ -41,5 +41,5 @@ In order for the app to run, you must add a ```config.json``` file into the root
 4. Once a new grade is posted, the bot will send you a message :inbox_tray:
 <img width=300px src="https://github.com/shacharyaron/grade-notifier-bot/blob/master/screenshots/screenshot3.jpg">
   
-# License
+# License :page_facing_up:
 This project is licensed under the Apache-2.0 License.
