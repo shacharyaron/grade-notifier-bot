@@ -14,9 +14,12 @@ When you run the application you would be asked to enter your Moodle credentials
 1. Make sure you are connected to Telegram web
 2. Follow the link to the next web page:
 <kbd>
-  <img width=860px src="https://github.com/shacharyaron/grade-notifier-bot/blob/master/screenshots/run-bot-screenShot.jpg">
+  <img width=750px src="https://github.com/shacharyaron/grade-notifier-bot/blob/master/screenshots/run-bot-screenShot.jpg">
 </kbd></br>
 3. press "OPEN IN WEB" button</br>
 4. in the open conversions press "strat"</br>
-
+</br>
 Congratulations! You don't waste your time on refresh Moodle web page anymore.
+
+# License
+This project is licensed under the Apache-2.0 License.
