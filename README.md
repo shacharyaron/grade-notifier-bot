@@ -1,25 +1,45 @@
-# grade-notifier-bot
-Grade notifier bot is a node.js application which scans the grade list on your Moodle account every few minuites and check for updats regard new gradeds. Once a new grade is published, you would recieve a message on Telegram which announces you about your score.
+# 📚 Grade Notifier Bot
+Grade Notifier Bot is a Telegram bot written in Node.js, it notifies when new grade is posted on IDC's website.
+</br>
+This bot was created so IDC students wouldn't have to constantly refresh the IDC website while waiting for their exam grades to be published.
 
 # How to run
-You can run the gallery by performing the following steps:
+You can run the bot by executing the following commands:
 ```
 $ git clone https://github.com/shacharyaron/grade-notifier-bot.git
 $ cd grade-notifier-bot
 $ npm install
-$ cd src\
-$ node app.js
+$ npm start
 ```
-When you run the application you would be asked to enter your Moodle credentials, and intialize the connection through a given link:
-1. Make sure you are connected to Telegram web
-2. Follow the link to the next web page:
-<kbd>
-  <img width=750px src="https://github.com/shacharyaron/grade-notifier-bot/blob/master/screenshots/run-bot-screenShot.jpg">
-</kbd></br>
-3. Press "OPEN IN WEB" button</br>
-4. In the open conversion press "strat"</br>
-</br>
-Congratulations! You don't waste your time on refresh Moodle web page anymore.
+**:rotating_light: IMPORTANT NOTE:**<br>
+In order for the bot to run, you must add a ```config.json``` file into the root directory, the file should have the following properties :
+```
+{
+    "moodle": {
+        "userName": "YOUR-USER-NAME-HERE", //NOT MANDATORY
+        "password": "YOUR-PASSWORD-HERE" //NOT MANDATORY
+    },
+    "telegram": {
+        "botName": "BOT-NAME-HERE",
+        "botKey": "BOT-API-KEY-HERE"
+    },
+    "settings": {
+        "gradePollingIntervalInMinutes": 10  //NOT MANDATORY
+    }
+}
+```
 
-# License
-This project is licensed under the Apache-2.0 License.
+
+# Use case :calling:
+1. Run the bot
+2. Follow the link to start chatting with the bot on Telegram
+<img width=750px src="https://github.com/shacharyaron/grade-notifier-bot/blob/master/screenshots/screenshot1.jpg">
+
+3. Click on the "START" button and wait for the bot to greet you
+<img width=300px src="https://github.com/shacharyaron/grade-notifier-bot/blob/master/screenshots/screenshot2.jpg">
+
+4. Once a new grade is posted, the bot will send you a message :inbox_tray:
+<img width=300px src="https://github.com/shacharyaron/grade-notifier-bot/blob/master/screenshots/screenshot3.jpg">
+  
+# License 
+This project is licensed under the Apache-2.0 License :page_facing_up:.
